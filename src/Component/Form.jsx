@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
   const [saving, setSaving] = useState("");
   const [yearSaving, setYearSaving] = useState("");
   const [intrest, setIntrest] = useState("");
   const [duration, setDuration] = useState("");
-
-  const submitHandler = (event) => {
- event.preventDefault()
-    console.log(saving);
-    console.log(yearSaving);
-    console.log(intrest);
-    console.log(duration);
+  const object = {
+    saving: saving,
+    yearSaving: yearSaving,
+    intrest: intrest,
+    duration: duration,
   };
+
   const inputHandler = (input, value) => {
     if (input == "current-savings") {
       setSaving(value);
@@ -23,6 +22,10 @@ const Form = () => {
     } else if (input == "duration") {
       setDuration(value);
     }
+  };
+  const submitHandler = (event) => {
+    event.preventDefault();
+    props.calculateHandler(object);
   };
   return (
     <form onSubmit={submitHandler} className="form">
