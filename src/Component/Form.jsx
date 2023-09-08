@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Form = () => {
+  const [saving, setSaving] = useState("");
+  const [yearSaving, setYearSaving] = useState("");
+  const [intrest, setIntrest] = useState("");
+  const [duration, setDuration] = useState("");
+
   const submitHandler = (event) => {
-    event.preventDefault();
+ event.preventDefault()
+    console.log(saving);
+    console.log(yearSaving);
+    console.log(intrest);
+    console.log(duration);
   };
   const inputHandler = (input, value) => {
-console.log(input+":"+value)
-
+    if (input == "current-savings") {
+      setSaving(value);
+    } else if (input == "yearly-contribution") {
+      setYearSaving(value);
+    } else if (input == "expected-return") {
+      setIntrest(value);
+    } else if (input == "duration") {
+      setDuration(value);
+    }
   };
   return (
     <form onSubmit={submitHandler} className="form">
