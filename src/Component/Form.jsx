@@ -5,7 +5,7 @@ const Form = (props) => {
   const [yearSaving, setYearSaving] = useState("");
   const [intrest, setIntrest] = useState("");
   const [duration, setDuration] = useState("");
-  const object = {
+  let object = {
     saving: saving,
     yearSaving: yearSaving,
     intrest: intrest,
@@ -24,6 +24,7 @@ const Form = (props) => {
     }
   };
   const submitHandler = (event) => {
+    
     event.preventDefault();
     props.calculateHandler(object);
   };

@@ -1,9 +1,9 @@
 import React from "react";
 
 const Table = (props) => {
-  console.log(props.data.savingsEndofYear)
-    return (
-
+ console.log(props.data[0].savingsEndofYear)
+  return (
+    
     <table className="result">
       <thead>
         <tr>
@@ -15,19 +15,21 @@ const Table = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.data
-          ? props.data.map((d, index) => {
-              return (
-                <tr key={index}>
-                  <td >{d.year}</td>
-                  <td >{d.savingsEndofYear}</td>
-                  <td >{d.yearlyIntrest}</td>
-                  <td >{d.savingsEndofYear-props.initialInvestment- d.yearlyContribution*d.year}</td>
-                  <td >{d.yearlyContribution}</td>
-                 
-                </tr>    );
-            })
-          : console.log("enterData first")}
+        {props.data.map((d, index) => {
+          return (
+            <tr key={index}>
+              <td>{d.year}</td>
+              <td>{d.savingsEndofYear}</td>
+              <td>{d.yearlyIntrest}</td>
+              <td>
+                {d.savingsEndofYear -
+                  props.initialInvestment -
+                  d.yearlyContribution * d.year}
+              </td>
+              <td>{d.yearlyContribution}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
