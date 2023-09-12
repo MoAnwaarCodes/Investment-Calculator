@@ -26,6 +26,7 @@ const Table = ({ data, initialInvestment }) => {
                     initialInvestment -
                     d.yearlyContribution * d.year}
                 </td>
+                
                 <td>{initialInvestment+d.yearlyContribution*d.year}</td>
               </tr>
             );
