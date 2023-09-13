@@ -3,7 +3,6 @@ import React from "react";
 const Table = ({ data, initialInvestment }) => {
   return (
     <>
-      
       <table className="result">
         <thead>
           <tr>
@@ -26,8 +25,8 @@ const Table = ({ data, initialInvestment }) => {
                     initialInvestment -
                     d.yearlyContribution * d.year}
                 </td>
-                
-                <td>{initialInvestment+d.yearlyContribution*d.year}</td>
+
+                <td>{initialInvestment + d.yearlyContribution * d.year}</td>
               </tr>
             );
           })}
